@@ -44,5 +44,23 @@ public class BirdPresenter
         this.model = model;
     }
 
+    public bool Flyup(Vector3 position)
+    {
+        if(IsFlying) return false;
 
+        IsFlying = true;
+        flyup = position + Vector3.up * model.flyUp;
+        return true;
+    }
+
+    public Vector3 Update(Vector3 position, float dt)
+    {
+        if(IsFlying)
+            position = Vector3.MoveTowards(position, flyup, model.speedFlyup * dt);
+
+        if(position == flyup)
+            IsFlying = false;
+
+        return position;
+    }
 }
