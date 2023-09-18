@@ -20,8 +20,8 @@ public class Game : MonoBehaviour
  [System.Serializable]
     public class BirdModel
     {
-        public float flyUp;
-        public float speedFlyup;
+        public float flyUp = 0.5f;
+        public float speedFlyup = 3.5f;
     }
     
  [System.Serializable]

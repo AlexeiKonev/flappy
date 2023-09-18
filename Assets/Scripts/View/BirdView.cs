@@ -4,19 +4,32 @@ using UnityEngine;
 
 public class BirdView : MonoBehaviour
 {
-    [SerializeField] BirdModel model;
+    [SerializeField]
+    private BirdModel model;
 
-    BirdPresenter presenter;
-    Rigidbody2D rb;
+    private BirdPresenter presenter;
+    private Rigidbody2D rb;
 
-    void Start()
+    private void Start()
     {
         presenter = new BirdPresenter(model);    
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    private void Update()
     {
-        
+        if(IsInput())
+        {
+            bool isStartFly = presenter.Flyup(transform.localPosition);
+            if(isStartFly)
+                rb.velocity = Vector2.zero;
+        }
+
+        transform.localPosition = presenter.Update(transform.localPosition, Time.deltaTime);
+    }
+
+    private bool IsInput()
+    {
+        return Input.GetMouseButtonDown(0);
     }
 }
