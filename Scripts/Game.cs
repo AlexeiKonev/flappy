@@ -31,3 +31,18 @@ public class Game : MonoBehaviour
         public float minX;
         public float maxX;
     }
+    
+public class BirdPresenter
+{
+    BirdModel model;
+
+    Vector3 flyup;
+    public bool IsFlying {get; private set;}
+
+    public BirdPresenter(BirdModel model)
+    {
+        this.model = model;
+    }
+
+
+}
