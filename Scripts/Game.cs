@@ -16,3 +16,18 @@ public class Game : MonoBehaviour
         
     }
 }
+
+ [System.Serializable]
+    public class BirdModel
+    {
+        public float flyUp;
+        public float speedFlyup;
+    }
+    
+ [System.Serializable]
+    public class BackgroundControllerModel
+    {
+        public float horizontalSpeed;
+        public float minX;
+        public float maxX;
+    }
