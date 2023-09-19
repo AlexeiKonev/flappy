@@ -23,11 +23,28 @@ public class Game : MonoBehaviour
         public float flyUp = 0.5f;
         public float speedFlyup = 3.5f;
     }
+[System.Serializable]
+    public class PipeObstacleModel
+    {
+        
+        public float speed  = 2f;
+    }
+
+[System.Serializable]
+public class PipeObstaclePresenter
+{
+    private PipeObstacleModel model;
+    private   Vector3 moveDirection;
     
+    public PipeObstaclePresenter(PipeObstacleModel model)
+    {
+        this.model = model;
+    }
+}
  [System.Serializable]
     public class BackgroundControllerModel
     {
-        public float horizontalSpeed;
+        public float horizontalSpeed =3f;
         public float minX;
         public float maxX;
     }
@@ -63,4 +80,15 @@ public class BirdPresenter
 
         return position;
     }
+}
+[System.Serializable]
+public class PileSpawnerModel
+{
+    public GameObject prefab;
+
+    public int maxPileOnScene;
+    public float distanceVerticalMin;
+    public float distanceVerticalMax;
+    public float horizontalDistance;
+    public float yClamp;
 }
